@@ -1,29 +1,32 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo/logo2.png";
 import "../App.css";
 import "../Shared/Pro.css"
-// import { FaRegCircleUser } from "react-icons/fa6";
-// import { FaSun, FaMoon } from "react-icons/fa";
-// import "react-tooltip/dist/react-tooltip.css";
-// import { Tooltip } from "react-tooltip";
-// import { useContext, useEffect } from "react";
-// import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext } from '../AuthProvider/AuthProvider';
+ import { FaRegCircleUser } from "react-icons/fa6";
+ import { FaSun, FaMoon } from "react-icons/fa";
+ import "react-tooltip/dist/react-tooltip.css";
+ import { Tooltip } from "react-tooltip";
+
+
 
 const Navbar = () => {
-    // const { user, logOut, isDarkMode, setIsDarkMode } = useContext(AuthContext);
+     const { user, logOut, isDarkMode, setIsDarkMode} = useContext(AuthContext);
+  
 
-    // useEffect(() => {
-    //     if (isDarkMode) {
-    //         document.body.classList.add("dark");
-    //     } else {
-    //         document.body.classList.remove("dark");
-    //     }
-    // }, [isDarkMode]);
 
-    // const toggleDarkMode = () => {
-    //     setIsDarkMode((prevMode) => !prevMode);
-    // };
+    useEffect(() => {
+        if (isDarkMode) {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
+    }, [isDarkMode]);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode((prevMode) => !prevMode);
+    };
 
     const links = (
         <>
@@ -37,8 +40,8 @@ const Navbar = () => {
     return (
         <>
             <div className="w-full justify-center flex">
-                <div className="pt-5 fixed w-full bg-teal-800 top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30 ">
-                    <div className="navbar max-w-6xl mx-auto">
+                <div className="pt-5 fixed w-full bg-teal-800 top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30">
+                    <div className="navbar flex justify-between items-center mx-auto">
                         <div className="navbar-start space-x-2">
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="btn btn-ghost text-gray-200 hover:text-teal-950 lg:hidden">
@@ -72,11 +75,11 @@ const Navbar = () => {
                                
                             </div>
                         </div>
-                        <div className="navbar-center text-gray-200 proCardButton hidden lg:flex">
+                        <div className="navbar-center btn text-gray-200 proCardButton hidden lg:flex">
                             <ul className="menu menu-horizontal px-1">{links}</ul>
                         </div>
 
-                        {/* <div className="navbar-end space-x-2">
+                         <div className="navbar-end space-x-2">
                              {user && user?.email ? (
                                 <div className="text-center space-x-2 image">
 
@@ -98,63 +101,51 @@ const Navbar = () => {
                                         >
                                             {user ? (
                                                 <li>
-                                                    <NavLink to="/addTutorials">Add Tutorials</NavLink>
+                                                    <NavLink to="/dashboard">Dashboard</NavLink>
                                                 </li>
                                             ) : (
                                                 ""
                                             )}
-                                            {user ? (
-                                                <li>
-                                                    <NavLink to="/myEmail">My Tutorials</NavLink>
-                                                </li>
-                                            ) : (
-                                                ""
-                                            )}
-                                            {user ? (
-                                                <li>
-                                                    <NavLink to="/bookTutors">My Booked Tutors</NavLink>
-                                                </li>
-                                            ) : (
-                                                ""
-                                            )}
+                                           
+                                            
                                         </ul>
                                     </div>
                                     <Tooltip id="profile-tooltip" />
                                 </div>
                             ) : (
-                                <p className="text-3xl text-orange-400">
+                                <p className="text-3xl text-teal-800">
                                     
                                 </p>
                             )} 
 
                             {user && user?.email ? (
-                                <button onClick={logOut} className="btn bg-orange-400 text-white">
+                                <button onClick={logOut} className="btn proCardButton">
                                     Logout
                                 </button>
                             ) : (
                                 <>
                                     <Link
-                                        to="/logIn"
-                                        className="btn bg-orange-400 text-white"
+                                        to="/login"
+                                        className="btn proCardButton"
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content="Please use your correct email and password"
                                     >
-                                        Login
+                                        Sign In
                                     </Link>
                                     <NavLink
                                         to="/register"
-                                        className="btn bg-orange-400 text-white"
+                                        className="btn proCardButton"
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content="Please Register with your personal information"
                                     >
-                                        Register
+                                        Sign Up
                                     </NavLink>
                                 </>
                             )}
-                            <button onClick={toggleDarkMode} className="btn bg-orange-400 text-white">
+                            <button onClick={toggleDarkMode} className="btn proCardButton">
                                 {isDarkMode ? <FaSun /> : <FaMoon />}
                             </button>
-                        </div> */}
+                        </div> 
                     </div>
                 </div>
             </div>

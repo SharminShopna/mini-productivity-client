@@ -2,7 +2,7 @@ import React from 'react';
 
 const Register = () => {
     return (
-        <div>
+        <div className='mt-32'>
             <h1>This is register</h1>
         </div>
     );
