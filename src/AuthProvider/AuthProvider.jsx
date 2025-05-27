@@ -1,42 +1,73 @@
-import React, { createContext, useState } from 'react';
-export const AuthContext = createContext(null);
+import React, { createContext, useState, useEffect } from 'react';
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
-
-  
+  updateProfile,
+  onAuthStateChanged,
 } from "firebase/auth";
 import auth from "../Firebase/firebase.init";
 
+// Create context
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [isDarkMode, setIsDarkMode] = useState(false);
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-    const createUser = (email,password) =>{
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth,email,password)
-    }
+  // Create User (Register)
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-     const logout = () => {
+  // Login User
+  const userLogin = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // Logout User
+  const logout = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-    const authInfo = {
-        user,
-        loading,
-        logout,
-        isDarkMode,
-        setIsDarkMode,
-        createUser,
+  // Update User Profile
+  const updateUserProfile = (updateData) => {
+    return updateProfile(auth.currentUser, updateData);
+  };
 
+  // Track user state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
 
-    }
-    return (
-        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-    );
+    // Cleanup
+    return () => unsubscribe();
+  }, []);
+
+  // Auth context value
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    userLogin,
+    logout,
+    updateUserProfile,
+    isDarkMode,
+    setIsDarkMode,
+    setUser,
+  };
+
+  return (
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

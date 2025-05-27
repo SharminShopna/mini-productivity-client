@@ -72,6 +72,7 @@ const Register = () => {
 
       Swal.fire({ title: "Success!", text: "Successfully Registered", icon: "success" });
       navigate("/");
+      location.reload()
     } catch (error) {
       Swal.fire({ title: "Error!", text: error.message, icon: "error" });
     }
