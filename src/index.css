@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.bg-tealGreen {
+  background-color: rgba(0, 128, 128, 0.4);
+}
+
+/* bg-teal-50    => background-color: #f0fdfa;
+bg-teal-100   => background-color: #ccfbf1; */

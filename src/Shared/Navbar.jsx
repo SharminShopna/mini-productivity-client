@@ -41,7 +41,7 @@ const Navbar = () => {
         <>
             <div className="w-full justify-center flex">
                 <div className="pt-5 fixed w-full bg-teal-800 top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30">
-                    <div className="navbar flex justify-between items-center mx-auto">
+                    <div className="navbar flex justify-between items-center mx-auto md:px-12">
                         <div className="navbar-start space-x-2">
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="btn btn-ghost text-gray-200 hover:text-teal-950 lg:hidden">

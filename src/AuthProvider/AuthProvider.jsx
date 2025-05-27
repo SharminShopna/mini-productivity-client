@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 export const AuthContext = createContext(null);
 import {
+  createUserWithEmailAndPassword,
   signOut,
 
   
@@ -13,6 +14,11 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [isDarkMode, setIsDarkMode] = useState(false);
 
+    const createUser = (email,password) =>{
+        setLoading(true)
+        return createUserWithEmailAndPassword(auth,email,password)
+    }
+
      const logout = () => {
     setLoading(true);
     return signOut(auth);
@@ -24,6 +30,8 @@ const AuthProvider = ({ children }) => {
         logout,
         isDarkMode,
         setIsDarkMode,
+        createUser,
+
 
     }
     return (
