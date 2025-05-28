@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([]);
@@ -34,6 +35,43 @@ const Tasks = () => {
         }
     };
 
+    // Task delete------>
+    const handleDeleteTask = async (id) => {
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: 'This task will be deleted permanently!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        });
+
+        if (result.isConfirmed) {
+            try {
+                const res = await fetch(`http://localhost:5000/delete/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                const data = await res.json();
+
+                if (data.deletedCount > 0) {
+                    setTasks(prev => prev.filter(task => task._id !== id));
+
+                    Swal.fire(
+                        'Deleted!',
+                        'Task has been deleted.',
+                        'success'
+                    );
+                }
+            } catch (err) {
+                console.error('Delete failed:', err);
+                Swal.fire('Error!', 'Something went wrong.', 'error');
+            }
+        }
+    };
+
+
 
     return (
         <div className="mt-10 md:mt-32 p-4 overflow-x-auto">
@@ -66,7 +104,7 @@ const Tasks = () => {
                                     </button>
                                 )}
                                 <button className="text-blue-600 hover:text-blue-800"><FaEdit /></button>
-                                <button className="text-red-600 hover:text-red-800"><FaTrashAlt /></button>
+                                <button onClick={() => handleDeleteTask(task._id)} className="text-red-600 hover:text-red-800"><FaTrashAlt /></button>
                             </td>
                         </tr>
                     ))}
