@@ -9,7 +9,7 @@ import registerLottie from '../../src/assets/lottie/register.json';
 import Lottie from "lottie-react";
 import { AuthContext } from "./AuthProvider";
 import SocialLogin from "./SocialLogin";
-import axios from "axios";
+import axios from 'axios';
 
 const Register = () => {
   const PasswordValid = /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/;
@@ -68,6 +68,12 @@ const Register = () => {
       const imageUrl = data?.data?.url;
       await createUser(email, password, name);
       await updateUserProfile({ displayName: name, photoURL: imageUrl });
+
+      const userData = { name, email, photoURL: imageUrl };
+      await axios.post('http://localhost:5000/users', userData);
+      // Get JWT
+      await axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true });
+
       setUser({ displayName: name, photoURL: imageUrl });
 
       Swal.fire({ title: "Success!", text: "Successfully Registered", icon: "success" });

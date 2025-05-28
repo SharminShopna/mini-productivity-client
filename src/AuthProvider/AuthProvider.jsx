@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import auth from "../Firebase/firebase.init";
+import axios from 'axios';
 
 // Create context
 export const AuthContext = createContext();
@@ -41,8 +42,20 @@ const AuthProvider = ({ children }) => {
 
   // Track user state
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async(currentUser) => {
       setUser(currentUser);
+      console.log('state captured', currentUser?.email)
+      if (currentUser?.email) {
+        // Send token to backend
+        const userInfo = { email: currentUser.email };
+        await axios.post("http://localhost:5000/jwt", userInfo, {
+          withCredentials: true,
+        });
+      } else {
+        await axios.get("http://localhost:5000/logout", {
+          withCredentials: true,
+        });
+      }
       setLoading(false);
     });
 

@@ -7,6 +7,7 @@ import logInLottie from '../assets/lottie/login.json';
 import Lottie from "lottie-react";
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from "./AuthProvider";
+import axios from "axios";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,35 +15,40 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        userLogin(email, password)
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
+        try {
+            const result = await userLogin(email, password);
+            const user = result.user;
+            setUser(user);
 
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Login successful",
-                    icon: "success",
-                    didClose: () => {
-                        navigate(location?.state ? location.state : "/");
-                    }
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
+            //  Get JWT token
+            await axios.post("http://localhost:5000/jwt", { email }, { withCredentials: true });
+
+            Swal.fire({
+                title: "Good job!",
+                text: "Login successful",
+                icon: "success",
+                didClose: () => {
+                    navigate(location?.state ? location.state : "/");
+                    location.reload(); 
+                }
             });
+
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Login failed. Please check your email and password!",
+            });
+        }
     };
+
 
     return (
         <>
