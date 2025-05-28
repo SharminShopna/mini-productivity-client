@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       )}
 
       <div
-        className={`fixed md:static top-0 mt-[92px] left-0 z-50 w-64 h-full md:min-h-screen bg-teal-900 text-gray-100 transform transition-transform duration-300 ease-in-out p-5 flex flex-col justify-between
+        className={`fixed md:static top-0 md:mt-[92px] left-0 z-50 w-64 h-full md:min-h-screen bg-teal-900 text-gray-100 transform transition-transform duration-300 ease-in-out p-5 flex flex-col justify-between
           ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
       >
         {/* Close button for mobile */}

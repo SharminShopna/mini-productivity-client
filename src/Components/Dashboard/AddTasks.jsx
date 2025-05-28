@@ -42,7 +42,7 @@ const AddTasks = () => {
 
   return (
     <div className='mt-24 md:mt-36 max-w-md mx-auto p-4 rounded '>
-      <h1 className='text-5xl text-center text-teal-800 italic font-bold mb-4'>Add New Task</h1>
+      <h1 className='text-5xl text-center text-teal-800 italic font-bold mb-4'>ADD NEW TASK</h1>
       <form onSubmit={handleSubmit} className='space-y-4 mt-16'>
         <input
           name='title'
