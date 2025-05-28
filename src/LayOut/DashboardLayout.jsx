@@ -21,7 +21,9 @@ const DashboardLayout = () => {
                     {/* Logo with Home Link */}
                     <Link to="/" className="flex items-center gap-2">
                         <img src={logo} alt="Logo" className="h-8 w-8 rounded-full" />
-                        <span className="text-lg font-bold">ProdigyBoard</span>
+                        <h2 className="font-semibold">
+                            <span className="text-3xl font-semibold">P</span>rodigy<span className="text-3xl font-semibold">B</span>oard
+                        </h2>
                     </Link>
                     <button onClick={() => setSidebarOpen(!sidebarOpen)}>
                         <Menu size={24} />

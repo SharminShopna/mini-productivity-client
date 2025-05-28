@@ -47,6 +47,9 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           <Link to="/dashboard/goals" className={linkClass('/dashboard/goals')}>
             Goals
           </Link>
+          <Link to="/dashboard/addGoals" className={linkClass('/dashboard/addGoals')}>
+            Add Goals
+          </Link>
           <Link to="/dashboard/quote" className={linkClass('/dashboard/quote')}>
             Motivational Quote
           </Link>

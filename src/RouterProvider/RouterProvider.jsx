@@ -11,6 +11,8 @@ import Quote from '../Components/Dashboard/Quote';
 import DashboardHome from '../Components/Dashboard/DashboardHome';
 import AddTasks from '../Components/Dashboard/AddTasks';
 import UpdateTask from '../Components/Dashboard/UpdateTask';
+import AddGoals from '../Components/Dashboard/AddGoals';
+import UpdateGoals from '../Components/Dashboard/UpdateGoals';
 
 const RouterProvider = () => {
     return (
@@ -28,6 +30,8 @@ const RouterProvider = () => {
                 <Route path="add" element={<AddTasks />} />
                 <Route path="update/:id" element={<UpdateTask />} />
                 <Route path="goals" element={<Goals />} />
+                <Route path="addGoals" element={<AddGoals/>} />
+                <Route path="updateGoals/:id" element={<UpdateGoals/>} />
                 <Route path="quote" element={<Quote />} />
 
             </Route>
