@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { FaTrashAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([]);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch('http://localhost:5000/tasks', {
@@ -103,7 +106,8 @@ const Tasks = () => {
                                         <FaCheckCircle />
                                     </button>
                                 )}
-                                <button className="text-blue-600 hover:text-blue-800"><FaEdit /></button>
+                                <button onClick={() => navigate(`/dashboard/update/${task._id}`)}
+                                    className="text-blue-600 hover:text-blue-800"><FaEdit /></button>
                                 <button onClick={() => handleDeleteTask(task._id)} className="text-red-600 hover:text-red-800"><FaTrashAlt /></button>
                             </td>
                         </tr>
