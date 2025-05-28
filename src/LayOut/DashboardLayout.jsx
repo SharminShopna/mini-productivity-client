@@ -1,43 +1,42 @@
-// DashboardLayout.jsx
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import Sidebar from '../Components/Dashboard/Sidebar';
+import { Outlet } from 'react-router-dom';
 import { Menu } from 'lucide-react';
-import "../Shared/Pro.css"
-import "../../src/index.css"
+import Navbar from '../Shared/Navbar';
+import Footer from '../Shared/Footer';
 
 const DashboardLayout = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  return (
-    <div className="flex min-h-screen bg-tealGreen">
-      {/* Sidebar */}
-      <div
-        className={`transition-transform duration-300 ease-in-out md:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:static fixed z-50`}
-      >
-        <Sidebar toggleSidebar={() => setIsOpen(false)} />
-      </div>
+    return (
+        <>
+            <div className='hidden md:block'>
+                <Navbar></Navbar>
+            </div>
 
-      {/* Main Content */}
-      <div className="flex-1 bg-teal-50 md:ml-64">
-        {/* Mobile Menu Button */}
-        <div className="md:hidden p-4">
-          <button
-            className="text-teal-800 text-2xl"
-            onClick={() => setIsOpen(true)}
-          >
-            <Menu />
-          </button>
-        </div>
+            <div className="min-h-screen flex flex-col md:flex-row bg-gray-100">
+                {/* Mobile Header */}
+                <div className="md:hidden flex items-center justify-between bg-teal-800 text-white p-4 shadow-md">
+                    <h1 className="text-lg font-bold">Dashboard</h1>
+                    <button onClick={() => setSidebarOpen(!sidebarOpen)}>
+                        <Menu size={24} />
+                    </button>
+                </div>
 
-        <div className="p-6 overflow-auto">
-          <Outlet />
-        </div>
-      </div>
-    </div>
-  );
+                {/* Sidebar */}
+                <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+
+                {/* Main Content */}
+                <div className="flex-1 p-4">
+                    <Outlet />
+                </div>
+            </div>
+            <div className='hidden md:block'>
+                <Footer></Footer>
+            </div>
+
+        </>
+    );
 };
 
 export default DashboardLayout;

@@ -4,7 +4,7 @@ import bg from "../../src/assets/footer/footerBg.jpg";
 import "../index.css";
 const Footer = () => {
   return (
-    <div className="mt-24">
+    <div className="">
       {/* Main Footer Section */}
       <div
         className="bg-base-200 relative bg-cover bg-center py-16 text-white text-lg"

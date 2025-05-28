@@ -3,7 +3,7 @@
   cursor: pointer;
   border: 2px solid rgb(54, 143, 139);
   outline: none;
-  color: black;
+  color: rgb(17, 94, 89);
   border-radius: 10px 20px;
   background: linear-gradient(to right, transparent 50%, white 50%);
   background-size: 200% 100%;
