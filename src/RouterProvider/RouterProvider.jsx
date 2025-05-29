@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainLayOut from '../LayOut/MainLayOut';
+import DashboardLayout from '../LayOut/DashboardLayout';
 import HomePage from '../Pages/HomePage';
 import Login from '../AuthProvider/Login';
 import Register from '../AuthProvider/Register';
-import DashboardLayout from '../LayOut/DashBoardLayOut';
 import Tasks from '../Components/Dashboard/Tasks';
 import Goals from '../Components/Dashboard/Goals';
 import Quote from '../Components/Dashboard/Quote';
