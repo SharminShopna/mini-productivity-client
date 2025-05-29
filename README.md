@@ -3,8 +3,8 @@
 **ProdigyBoard** is a simple and powerful web-based productivity dashboard that helps users manage their **daily tasks**, set **weekly/monthly goals**, and stay motivated with a daily **quote** fetched from a public API. Built using the **MERN stack** with JWT-based authentication, this dashboard is perfect for keeping your day organized and on track.
 
 ---
-🌐 Live Demo
-[Coming Soon] 
+🌐 Live Demo: 
+     https://mini-productivity-client-463j.vercel.app   
 
 ## 🌟 Features
 
