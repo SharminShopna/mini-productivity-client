@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "Start with Gratitude",
+    "description": "Write down three things you're grateful for. Practicing gratitude boosts positivity and mental well-being.",
+    "icon": "🙏"
+  },
+  {
+    "id": "2",
+    "name": "Morning Mindfulness",
+    "description": "Spend 5-10 minutes in quiet meditation or deep breathing to center your thoughts and reduce stress.",
+    "icon": "🧘‍♀️"
+  },
+  {
+    "id": "3",
+    "name": "Read Something Uplifting",
+    "description": "Read an inspiring article or book excerpt that motivates you to improve and stay hopeful.",
+    "icon": "📖"
+  },
+  {
+    "id": "4",
+    "name": "Practice Kindness",
+    "description": "Do one small act of kindness today. Helping others boosts your own happiness too!",
+    "icon": "💖"
+  },
+  {
+    "id": "5",
+    "name": "Set One Clear Goal",
+    "description": "Focus on one important task to accomplish today. Clarity improves productivity and peace of mind.",
+    "icon": "🎯"
+  },
+  {
+    "id": "6",
+    "name": "Drink Water",
+    "description": "Hydration is key to physical and mental health. Aim to drink 6-8 glasses of water today.",
+    "icon": "💧"
+  },
+  {
+    "id": "7",
+    "name": "Take a Nature Break",
+    "description": "Spend a few minutes outside. Fresh air and sunlight improve your mood and energy.",
+    "icon": "🌿"
+  },
+  {
+    "id": "8",
+    "name": "Celebrate Small Wins",
+    "description": "Reflect on your accomplishments, no matter how small. Every step forward matters!",
+    "icon": "🎉"
+  }
+]

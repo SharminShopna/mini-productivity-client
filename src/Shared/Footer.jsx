@@ -26,33 +26,12 @@ const Footer = () => {
             </p>
           </div>
           {/* Navigation Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             <nav>
-              <h6 className="footer-title text-lg font-extrabold mb-3">
-                Features
-              </h6>
-              <a className="link link-hover block">Learning Paths</a>
-              <a className="link link-hover block">AI Recommendations</a>
-              <a className="link link-hover block">Progress Tracker</a>
-              <a className="link link-hover block">Course Suggestions</a>
-            </nav>
-            <nav>
-              <h6 className="footer-title text-lg font-extrabold mb-3">
-                Resources
-              </h6>
-              <a className="link link-hover block">Blog & Insights</a>
-              <a className="link link-hover block">Case Studies</a>
-              <a className="link link-hover block">Webinars & Events</a>
-              <a className="link link-hover block">API Documentation</a>
-            </nav>
-            <nav>
-              <h6 className="footer-title text-lg font-extrabold mb-3">
-                Support
-              </h6>
-              <a className="link link-hover block">Help Center</a>
-              <a className="link link-hover block">Community Forum</a>
-              <a className="link link-hover block">Contact Support</a>
-              <a className="link link-hover block">System Status</a>
+              <h6 className="footer-title text-lg font-extrabold mb-3">Features</h6>
+              <a href="/dashboard/tasks" className="link link-hover block">Task Dashboard</a>
+              <a href="/dashboard/goals" className="link link-hover block">Goal Planner</a>
+              <a href="/dashboard/quote" className="link link-hover block">Motivational Quotes</a>
             </nav>
           </div>
 

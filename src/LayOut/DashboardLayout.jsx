@@ -3,7 +3,6 @@ import Sidebar from '../Components/Dashboard/Sidebar';
 import { Link, Outlet } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import Navbar from '../Shared/Navbar';
-import Footer from '../Shared/Footer';
 import logo from '../assets/logo/logo2.png';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
@@ -11,7 +10,7 @@ const DashboardLayout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { isDarkMode } = useContext(AuthContext);
 
-    const bgColor = isDarkMode ? 'bg-gray-900 text-white' : 'bg-teal-50 text-black';
+    const bgColor = isDarkMode ? 'bg-gray-900 text-white' : 'bg-teal-100 text-black';
 
     return (
         <>
@@ -43,9 +42,6 @@ const DashboardLayout = () => {
                 </div>
             </div>
 
-            <div className='hidden md:block'>
-                <Footer />
-            </div>
         </>
     );
 };

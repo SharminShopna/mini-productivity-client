@@ -1,10 +1,15 @@
 import React from 'react';
+import Banner from '../Components/Banner';
+import Productivity from '../Components/Productivity';
 
 const HomePage = () => {
     return (
-        <div className='mt-32'>
-            <h1>This is Home page</h1>
-        </div>
+        <>
+            <Banner></Banner>
+            <div className="container w-11/12 mx-auto">
+                <Productivity></Productivity>
+            </div>
+        </>
     );
 };
 
