@@ -70,9 +70,9 @@ const Register = () => {
       await updateUserProfile({ displayName: name, photoURL: imageUrl });
 
       const userData = { name, email, photoURL: imageUrl };
-      await axios.post('http://localhost:5000/users', userData);
+      await axios.post('https://mini-productivity-server-2.onrender.com/users', userData);
       // Get JWT
-      await axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true });
+      await axios.post('https://mini-productivity-server-2.onrender.com/jwt', { email }, { withCredentials: true });
 
       setUser({ displayName: name, photoURL: imageUrl });
 

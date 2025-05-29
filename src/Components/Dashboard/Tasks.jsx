@@ -9,7 +9,7 @@ const Tasks = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/tasks', {
+        fetch('https://mini-productivity-server-2.onrender.com/tasks', {
             method: 'GET',
             credentials: 'include',
         })
@@ -21,7 +21,7 @@ const Tasks = () => {
     // Mark button ----->
     const handleMarkComplete = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5000/tasks/${id}/complete`, {
+            const res = await fetch(`https://mini-productivity-server-2.onrender.com/tasks/${id}/complete`, {
                 method: 'PATCH',
                 credentials: 'include'
             });
@@ -52,7 +52,7 @@ const Tasks = () => {
 
         if (result.isConfirmed) {
             try {
-                const res = await fetch(`http://localhost:5000/delete/${id}`, {
+                const res = await fetch(`https://mini-productivity-server-2.onrender.com/delete/${id}`, {
                     method: 'DELETE',
                     credentials: 'include'
                 });

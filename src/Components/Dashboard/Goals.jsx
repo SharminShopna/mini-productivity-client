@@ -9,7 +9,7 @@ const Goals = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/goals', { withCredentials: true })
+        axios.get('https://mini-productivity-server-2.onrender.com/goals', { withCredentials: true })
             .then(res => {
                 setGoals(res.data);
             })
@@ -32,7 +32,7 @@ const Goals = () => {
 
         if (result.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/goals/${id}`, {
+                await axios.delete(`https://mini-productivity-server-2.onrender.com/goals/${id}`, {
                     withCredentials: true,
                 });
                 setGoals(prev => prev.filter(goal => goal._id !== id));

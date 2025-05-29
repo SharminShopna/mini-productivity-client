@@ -18,7 +18,7 @@ const AddTasks = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5000/tasks', {
+      const res = await fetch('https://mini-productivity-server-2.onrender.com/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

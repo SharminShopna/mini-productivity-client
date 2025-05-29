@@ -48,11 +48,11 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         // Send token to backend
         const userInfo = { email: currentUser.email };
-        await axios.post("http://localhost:5000/jwt", userInfo, {
+        await axios.post("https://mini-productivity-server-2.onrender.com/jwt", userInfo, {
           withCredentials: true,
         });
       } else {
-        await axios.get("http://localhost:5000/logout", {
+        await axios.get("https://mini-productivity-server-2.onrender.com/logout", {
           withCredentials: true,
         });
       }

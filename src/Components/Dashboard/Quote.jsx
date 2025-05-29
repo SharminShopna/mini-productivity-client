@@ -10,7 +10,7 @@ const Quote = () => {
 
   const fetchQuote = async () => {
     try {
-      const res = await fetch('http://localhost:5000/quote'); 
+      const res = await fetch('https://mini-productivity-server-2.onrender.com/quote'); 
       const data = await res.json();
 
       if (data.quote) {

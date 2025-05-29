@@ -14,7 +14,7 @@ const DashboardHome = () => {
             try {
 
                 // Fetch tasks
-                const taskRes = await axios.get('http://localhost:5000/tasks', {
+                const taskRes = await axios.get('https://mini-productivity-server-2.onrender.com/tasks', {
                     withCredentials: true,
                 });
 
@@ -42,7 +42,7 @@ const DashboardHome = () => {
         <div className="mt-20 p-6 text-center">
             <h1 className="text-5xl text-center text-teal-800 italic font-bold mb-4">WELCOME TO DASHBOARD!</h1>
 
-            <h2 className="text-4xl text-center text-teal-800 italic font-bold mt-12 mb-4">MY TASK STATUS</h2>
+            <h2 className="text-4xl text-center text-orange-400 italic font-bold mt-12 mb-4">MY TASK STATUS</h2>
 
             {taskStats.length === 0 ? (
                 <p className="text-teal-800 mt-4">No task data available yet.</p>

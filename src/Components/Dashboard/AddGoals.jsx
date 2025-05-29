@@ -10,7 +10,7 @@ const AddGoals = () => {
     e.preventDefault();
     try {
       await axios.post(
-        'http://localhost:5000/goals',
+        'https://mini-productivity-server-2.onrender.com/goals',
         { goal, type },
         { withCredentials: true }
       );

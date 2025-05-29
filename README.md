@@ -94,7 +94,7 @@ JWT_SECRET=your_jwt_secret
 
 # Start backend server
 node index.js
-Runs on: http://localhost:5000
+Runs on: https://mini-productivity-server-2.onrender.com
 
 ⚙ Backend Tech Stack
 Node.js

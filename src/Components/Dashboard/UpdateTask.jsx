@@ -14,7 +14,7 @@ const UpdateTask = () => {
 
   // Fetch existing task
   useEffect(() => {
-    fetch(`http://localhost:5000/tasks/${id}`, {
+    fetch(`https://mini-productivity-server-2.onrender.com/tasks/${id}`, {
       method: 'GET',
       credentials: 'include',
     })
@@ -40,7 +40,7 @@ const UpdateTask = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      const res = await fetch(`https://mini-productivity-server-2.onrender.com/tasks/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

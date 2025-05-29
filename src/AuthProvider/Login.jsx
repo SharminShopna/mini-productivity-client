@@ -27,7 +27,7 @@ const Login = () => {
             setUser(user);
 
             //  Get JWT token
-            await axios.post("http://localhost:5000/jwt", { email }, { withCredentials: true });
+            await axios.post("https://mini-productivity-server-2.onrender.com/jwt", { email }, { withCredentials: true });
 
             Swal.fire({
                 title: "Good job!",

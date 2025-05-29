@@ -12,7 +12,7 @@ const UpdateGoals = () => {
   useEffect(() => {
     const fetchGoal = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/goals/${id}`, {
+        const res = await axios.get(`https://mini-productivity-server-2.onrender.com/goals/${id}`, {
           withCredentials: true,
         });
         setGoal(res.data.goal);
@@ -27,7 +27,7 @@ const UpdateGoals = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/goals/${id}`, {
+      await axios.put(`https://mini-productivity-server-2.onrender.com/goals/${id}`, {
         goal,
         type
       }, {
