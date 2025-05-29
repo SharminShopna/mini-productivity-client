@@ -42,7 +42,6 @@ const Quote = () => {
 
       {quote && (
         <div className={` border border-teal-800 border-dashed p-4 rounded-lg shadow-md text-center ${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
-          {/* ✅ Image inside the quote card */}
           <img src={quoteImg} alt="Quote" className="w-full h-52 rounded-2xl mx-auto mb-4" />
 
           <p className={`text-xl italic  mb-2 ${isDarkMode ? "text-gray-200" : "text-teal-800"}`}>"{quote}"</p>
